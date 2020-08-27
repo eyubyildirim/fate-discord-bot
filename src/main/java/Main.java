@@ -13,8 +13,8 @@ import java.util.Collections;
 
 public class Main {
 
-    private static final String CLIENT_TOKEN = "NzQ4MzQ2MjAxNDc2NDMxOTAz.X0cFtg.DrcQirr204tUUjJmh4wnQxJH3nY";
-    private static final String CLIENT_ID = "748346201476431903";
+    private static final String CLIENT_TOKEN = "Client token buraya";
+    private static final String CLIENT_ID = "Client ID buraya";
 
     private static DiceRoll diceRoll = DiceRoll.getInstance();
 
