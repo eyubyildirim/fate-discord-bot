@@ -13,14 +13,17 @@ import java.util.Collections;
 
 public class Main {
 
-    private static final String CLIENT_TOKEN = "Client token buraya";
-    private static final String CLIENT_ID = "Client ID buraya";
+    private static String CLIENT_TOKEN = "";
+    private static String CLIENT_ID = "";
 
     private static DiceRoll diceRoll = DiceRoll.getInstance();
 
     private static final ArrayList<ReactionEmoji> rollDiceEmojis = new ArrayList<>();
 
     public static void main(String[] args) {
+        CLIENT_ID = args[0];
+        CLIENT_TOKEN = args[1];
+
         final DiscordClient client = DiscordClient.create(CLIENT_TOKEN);
         final GatewayDiscordClient gateway = client.login().block();
         initializeReactionList();
