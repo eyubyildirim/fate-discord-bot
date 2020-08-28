@@ -7,6 +7,8 @@ import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.User;
 import discord4j.core.object.entity.channel.MessageChannel;
 import discord4j.core.object.reaction.ReactionEmoji;
+import discord4j.discordjson.json.EmbedData;
+import discord4j.discordjson.json.EmbedFieldData;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -60,9 +62,13 @@ public class Main {
 
                     message.edit(messageEditSpec -> {
                         messageEditSpec.setEmbed(embedCreateSpec -> {
-                            embedCreateSpec.addField("Rolled Dice",
+
+                            
+                            embedCreateSpec.addField("" + user.asMember(reactionAddEvent.getGuildId().get())
+                                            .block().getDisplayName() + "'nin zari",
                                     diceRoll.toString() + " + " + plus + " = " + diceRoll.getDiceSum(),
                                     true);
+                            embedCreateSpec.setThumbnail(user.getAvatarUrl());
                         });
                     }).block();
                 }
