@@ -33,7 +33,7 @@ public class Main {
         gateway.on(MessageCreateEvent.class).subscribe(event -> {
             final Message message = event.getMessage();
 
-            if ("!diceroll".equals(message.getContent())) {
+            if ("?diceroll".equals(message.getContent())) {
                 final MessageChannel channel = message.getChannel().block();
 
                 diceRoll = rollDice(0);
@@ -63,7 +63,7 @@ public class Main {
                     message.edit(messageEditSpec -> {
                         messageEditSpec.setEmbed(embedCreateSpec -> {
 
-                            
+
                             embedCreateSpec.addField("" + user.asMember(reactionAddEvent.getGuildId().get())
                                             .block().getDisplayName() + "'nin zari",
                                     diceRoll.toString() + " + " + plus + " = " + diceRoll.getDiceSum(),
